@@ -3,7 +3,8 @@ import React, { FC, useEffect } from 'react';
 import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom';
 
 // Pages
-import { Main } from '../../pages';
+import { Main, Users } from '../../pages';
+
 
 export const Private: FC = () => {
     const { push } = useHistory();
@@ -21,6 +22,10 @@ export const Private: FC = () => {
                 exact
                 path = '/'>
                 <Main />
+            </Route>
+            <Route
+                path = '/users'>
+                <Users />
             </Route>
             <Redirect to = '/form' />
         </Switch>

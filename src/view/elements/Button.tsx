@@ -6,6 +6,7 @@ interface ButtonProps extends DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLB
     // use React.Ref instead of React.LegacyRef to prevent type incompatibility errors with styled-components types
     ref?: Ref<HTMLButtonElement>;
     active?: boolean;
+    actionBack?: boolean;
 }
 
 // Styles
