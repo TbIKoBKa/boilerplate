@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Button } from '../../elements';
+import { Button, DList } from '../../elements';
 import { EntityContainer, EntityHeader } from '../styles';
 
 export const Container = styled(EntityContainer)`
@@ -86,9 +86,11 @@ export const UserSection = styled.section`
     padding: 20px 40px;
 `;
 
-export const Dl = styled.dl`
-    column-count: 2;
-    margin: 8px 0
+export const Dl = styled(DList)`
+    margin: 8px 0;
+    ${({ isMain }) => isMain && css`
+        column-count: 2;
+    `}
 `;
 
 export const Dt = styled.dt`

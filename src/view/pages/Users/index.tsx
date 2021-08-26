@@ -95,7 +95,7 @@ const Users: FC = () => {
                     user
                     && (
                         <UserSection>
-                            <Dl>
+                            <Dl isMain>
                                 <img
                                     height = '100'
                                     src = { user.avatar }
@@ -116,13 +116,13 @@ const Users: FC = () => {
 
                                         return (
                                             <React.Fragment key = { index }>
-                                                <dl>
+                                                <Dl>
                                                     <Dt key = { index }>{formatText(item[ 0 ])}:</Dt>
                                                     {
                                                         Object.entries(item[ 1 ]).map((item, index) => item[ 0 ] !== 'coordinates'
                                                                 && <Dd key = { index }>{`${formatText(item[ 0 ])}: ${item[ 1 ]}`}</Dd>)
                                                     }
-                                                </dl>
+                                                </Dl>
                                             </React.Fragment>
                                         );
                                     })
