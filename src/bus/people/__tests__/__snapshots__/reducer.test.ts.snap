@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`people reducer should handle set action 1`] = `
+Array [
+  Object {
+    "birth_year": "2002",
+    "created": "2021",
+    "edited": "2021",
+    "eye_color": "blue",
+    "films": Array [
+      "Naruto",
+      "Boruto",
+    ],
+    "gender": "male",
+    "hair_color": "yellow",
+    "height": "176",
+    "homeworld": "Ukraine",
+    "mass": "73",
+    "name": "Naruto",
+    "skin_color": "white",
+    "species": Array [
+      "species",
+    ],
+    "starships": Array [
+      "Saske",
+    ],
+    "url": "kanoha.ua/users/narotuuzumaki",
+    "vehicles": Array [
+      "Hinata",
+    ],
+  },
+]
+`;

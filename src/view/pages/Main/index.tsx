@@ -16,10 +16,6 @@ import { Button, Spinner } from '../../elements';
 // Styles
 import { Container, Header } from './styles';
 
-//My Styled
-import { AcceptButton, CancelButton } from '../../elements/Styled';
-import { Link } from 'react-router-dom';
-
 const Main: FC = () => {
     const [ text, setText ] = useState<string>('');
     const headerRef = useRef<HTMLElement>(null);
@@ -42,13 +38,7 @@ const Main: FC = () => {
         <Container>
             {false && <Spinner absolute />}
             <Header ref = { headerRef }>
-                <nav>
-                    <Link to="/users">
-                        <Button>
-                            Users
-                        </Button>
-                    </Link>
-                </nav>
+                <nav />
                 <input
                     value = { text }
                     onChange = { (event) => void setText(event.target.value) }

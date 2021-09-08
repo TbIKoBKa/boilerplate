@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`togglers actions should set toggler 1`] = `
+Object {
+  "payload": Object {
+    "type": "isOnline",
+    "value": false,
+  },
+  "type": "SET_TOGGLER_STATE",
+}
+`;

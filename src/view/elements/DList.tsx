@@ -3,7 +3,7 @@ import React, { FC, DetailedHTMLProps, Ref } from 'react';
 
 interface DListProps extends DetailedHTMLProps<React.OlHTMLAttributes<HTMLDListElement>, HTMLDListElement> {
     ref?: Ref<HTMLDListElement>;
-    isMain?: boolean;
+    main?: boolean;
 }
 
 export const DList: FC<DListProps> = ({ children, ...otherProps }) => {

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`profile actions should fill profile 1`] = `
+Object {
+  "payload": Object {
+    "age": 18,
+    "email": "narutolovesukraine@gmail.com",
+    "firstName": "Naruto",
+    "sex": "male",
+    "speciality": "Genin",
+    "surname": "Uzumaki",
+  },
+  "type": "FILL_PROFILE_DATA",
+}
+`;

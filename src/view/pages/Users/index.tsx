@@ -10,15 +10,10 @@ import { useUsersQuery } from '../../../bus/users';
 // Elements
 import { Spinner } from '../../elements';
 
-//React-Dom
-import { Link } from 'react-router-dom';
-
 // Styles
 import {
     Container,
-    Header,
     Main,
-    ActionButton,
     Table,
     TBody,
     TRow,
@@ -41,25 +36,17 @@ const Users: FC = () => {
     let { data, loading } = useUsersQuery();
     const [ user, setUser ] = useState<TUser | null>(null);
     const keys = [ 'first_name', 'last_name', 'email', 'date_of_birth' ];
-    if (loading) {
-        return <Spinner />;
-    }
 
     const onSelect = (user: TUser) => {
         setUser(user);
     };
 
+    if (loading) {
+        return <Spinner />;
+    }
+
     return (
         <Container>
-            {false && <Spinner absolute />}
-            <Header>
-                <ActionButton>Accept</ActionButton>
-                <Link to = '/'>
-                    <ActionButton actionBack>
-                        Close
-                    </ActionButton>
-                </Link>
-            </Header>
             <Main>
                 <Table>
                     <THead>
@@ -95,7 +82,7 @@ const Users: FC = () => {
                     user
                     && (
                         <UserSection>
-                            <Dl isMain>
+                            <Dl main>
                                 <img
                                     height = '100'
                                     src = { user.avatar }

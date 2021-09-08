@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todos actions should create todo async 1`] = `
+Object {
+  "payload": Object {
+    "body": Object {
+      "text": "text",
+    },
+  },
+  "type": "CREATE_TODO_ASYNC",
+}
+`;
+
+exports[`todos actions should delete todo 1`] = `
+Object {
+  "payload": "0",
+  "type": "DELETE_TODO",
+}
+`;
+
+exports[`todos actions should delete todo async 1`] = `
+Object {
+  "payload": Object {
+    "todoId": "0",
+  },
+  "type": "DELETE_TODO_ASYNC",
+}
+`;
+
+exports[`todos actions should fetch todos async 1`] = `
+Object {
+  "type": "FETCH_TODOS_ASYNC",
+}
+`;
+
+exports[`todos actions should set todo 1`] = `
+Object {
+  "payload": Object {
+    "id": "0",
+    "isCompleted": false,
+    "text": "text",
+  },
+  "type": "SET_TODO",
+}
+`;
+
+exports[`todos actions should set todos 1`] = `
+Object {
+  "payload": Array [
+    Object {
+      "id": "0",
+      "isCompleted": false,
+      "text": "text",
+    },
+  ],
+  "type": "SET_TODOS",
+}
+`;
+
+exports[`todos actions should update todo 1`] = `
+Object {
+  "payload": Object {
+    "id": "0",
+    "isCompleted": false,
+    "text": "text",
+  },
+  "type": "UPDATE_TODO",
+}
+`;
+
+exports[`todos actions should update todo async 1`] = `
+Object {
+  "payload": Object {
+    "body": Object {
+      "isCompleted": true,
+    },
+    "todoId": "0",
+  },
+  "type": "UPDATE_TODO_ASYNC",
+}
+`;

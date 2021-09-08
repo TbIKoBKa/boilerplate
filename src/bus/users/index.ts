@@ -12,10 +12,14 @@ import { useTogglersRedux } from '../client';
 export const useUsersQuery = () => {
     const dispatch = useDispatch();
     const data = useSelector(({ users }) => users);
-    const { togglersRedux: { isUsersFetching }} = useTogglersRedux();
+    const { togglersRedux: { isUsersFetching }, setTogglerAction } = useTogglersRedux();
 
     useEffect(() => {
-        dispatch(fetchUsersActionAsync());
+        (async () => {
+            setTogglerAction({ type: 'isUsersFetching', value: true });
+            await dispatch(fetchUsersActionAsync());
+            setTogglerAction({ type: 'isUsersFetching', value: false });
+        })();
     }, []);
 
     return {

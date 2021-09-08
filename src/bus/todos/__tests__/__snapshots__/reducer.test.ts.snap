@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todos reducer should handle delete todo action 1`] = `Array []`;
+
+exports[`todos reducer should handle set todo action 1`] = `
+Array [
+  Object {
+    "id": "0",
+    "isCompleted": false,
+    "text": "text",
+  },
+]
+`;
+
+exports[`todos reducer should handle set todos action 1`] = `
+Array [
+  Object {
+    "id": "0",
+    "isCompleted": false,
+    "text": "text",
+  },
+]
+`;
+
+exports[`todos reducer should handle update todo action 1`] = `Array []`;

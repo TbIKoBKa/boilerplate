@@ -3,7 +3,7 @@ import React, { FC, useEffect } from 'react';
 import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom';
 
 // Pages
-import { Main, Users } from '../../pages';
+import { Main, Users, ReactCourse } from '../../pages';
 
 
 export const Private: FC = () => {
@@ -26,6 +26,10 @@ export const Private: FC = () => {
             <Route
                 path = '/users'>
                 <Users />
+            </Route>
+            <Route
+                path = '/reactcourse'>
+                <ReactCourse />
             </Route>
             <Redirect to = '/form' />
         </Switch>

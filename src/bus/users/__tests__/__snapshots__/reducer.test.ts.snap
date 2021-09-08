@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`users reducer should handle set action 1`] = `
+Array [
+  Object {
+    "address": Object {
+      "city": "city",
+      "coordinates": Object {
+        "lat": 0,
+        "lng": 0,
+      },
+      "country": "country",
+      "state": "state",
+      "street_address": "street address",
+      "street_name": "street name",
+      "zip_code": "zip",
+    },
+    "avatar": "avatar",
+    "credit_card": Object {
+      "cc_number": "number",
+    },
+    "date_of_birth": "data",
+    "email": "email",
+    "employment": Object {
+      "key_skill": "0",
+      "title": "title",
+    },
+    "first_name": "fname",
+    "gender": "gender",
+    "id": 0,
+    "last_name": "lname",
+    "password": "password",
+    "phone_number": "phone",
+    "social_insurance_number": "sin",
+    "subscription": Object {
+      "payment_method": "method",
+      "plan": "plan",
+      "status": "status",
+      "term": "term",
+    },
+    "uid": "uid",
+    "username": "username",
+  },
+]
+`;

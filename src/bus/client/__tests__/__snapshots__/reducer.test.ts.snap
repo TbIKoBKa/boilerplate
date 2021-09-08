@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`togglers actions should handle set toggler action 1`] = `
+Object {
+  "isFilmsFetching": true,
+  "isOnline": false,
+  "isPeopleFetching": true,
+  "isTodosFetching": true,
+  "isUsersFetching": true,
+}
+`;

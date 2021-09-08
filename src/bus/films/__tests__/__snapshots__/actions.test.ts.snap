@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`films actions should fetch films 1`] = `
+Object {
+  "type": "FETCH_FILMS_ASYNC",
+}
+`;
+
+exports[`films actions should set films 1`] = `
+Object {
+  "payload": Array [
+    Object {
+      "characters": Array [
+        "Naruto",
+      ],
+      "created": "2021",
+      "director": "Naruto Uzumaki",
+      "edited": "2021",
+      "episode_id": 0,
+      "opening_crawl": "Best film",
+      "planets": Array [
+        "Kanoha",
+      ],
+      "producer": "Saske Uchiha",
+      "release_date": "2021",
+      "species": Array [
+        "Something",
+      ],
+      "starships": Array [
+        "Starship",
+      ],
+      "title": "Naruto",
+      "url": "naruto.watch.tv",
+      "vehicles": Array [
+        "Foots",
+        "Hands",
+      ],
+    },
+  ],
+  "type": "SET_FILMS",
+}
+`;

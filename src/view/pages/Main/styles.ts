@@ -10,5 +10,4 @@ export const Container = styled(EntityContainer)`
 
 export const Header = styled(EntityHeader)`
     background-color: ${({ theme }) => theme.second.anotherSecondary};
-    border-bottom: 1px solid #fff;
 `;

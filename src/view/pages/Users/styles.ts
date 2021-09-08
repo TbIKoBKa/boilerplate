@@ -11,7 +11,6 @@ export const Container = styled(EntityContainer)`
 export const Header = styled(EntityHeader)`
     display: block;
     background-color: ${({ theme }) => theme.second.anotherSecondary};
-    border-bottom: 1px solid #fff;
 `;
 
 export const Main = styled.main`
@@ -65,7 +64,7 @@ export const TBody = styled.tbody`
 export const TRow = styled.tr`
     cursor: pointer;
     &:hover {
-        background-color: #44dd77;
+        background-color: #55bb55;
     }
 `;
 
@@ -88,7 +87,7 @@ export const UserSection = styled.section`
 
 export const Dl = styled(DList)`
     margin: 8px 0;
-    ${({ isMain }) => isMain && css`
+    ${({ main }) => main && css`
         column-count: 2;
     `}
 `;
