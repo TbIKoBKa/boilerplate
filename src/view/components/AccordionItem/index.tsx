@@ -24,7 +24,7 @@ export const AccordionItem: FC<Proptypes> = ({ question, answer, id, isSelected,
                 onClick = { handleClick }>
                 <span>{question}</span>
             </AccordionQuestion>
-            <AccordionAnswer selected = { isSelected }>{answer}</AccordionAnswer>
+            {isSelected && <AccordionAnswer selected = { isSelected }>{answer}</AccordionAnswer>}
         </StyledAccordionItem>
     );
 };

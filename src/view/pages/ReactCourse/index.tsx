@@ -5,9 +5,6 @@ import React, { FC } from 'react';
 // Routes
 import { Routes } from './Routes';
 
-// Elements
-//import { Button, Spinner } from '../../elements';
-
 // Components
 import { NavBar } from '../../components';
 
