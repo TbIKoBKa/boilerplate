@@ -12,20 +12,10 @@ import { useTogglersRedux } from '../client';
 export const useFilmsQuery = () => {
     const dispatch = useDispatch();
     const data = useSelector(({ films }) => films);
-    const { togglersRedux: { isFilmsFetching }, setTogglerAction } = useTogglersRedux();
+    const { togglersRedux: { isFilmsFetching }} = useTogglersRedux();
 
     useEffect(() => {
-        (async () => {
-            setTogglerAction({
-                type:  'isFilmsFetching',
-                value: true,
-            });
-            await dispatch(fetchFilmsAsync());
-            setTogglerAction({
-                type:  'isFilmsFetching',
-                value: false,
-            });
-        })();
+        dispatch(fetchFilmsAsync());
     }, []);
 
     return {

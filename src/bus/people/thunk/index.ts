@@ -1,5 +1,6 @@
 // Core
 import { Dispatch } from 'redux';
+import { togglerCreatorAction } from '../../client';
 
 // Actions
 import { setPeopleAction } from '../actions';
@@ -8,7 +9,10 @@ import { setPeopleAction } from '../actions';
 import { fetchPeople } from './api';
 
 export const fetchPeopleAsync = () => async (dispatch: Dispatch) => {
-    const data = await fetchPeople();
+    dispatch(togglerCreatorAction({ type: 'isFilmsFetching', value: true }));
 
+    const data = await fetchPeople();
     dispatch(setPeopleAction(data));
+
+    dispatch(togglerCreatorAction({ type: 'isPeopleFetching', value: false }));
 };
