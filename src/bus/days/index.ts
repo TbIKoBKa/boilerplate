@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from '../../tools/hooks';
 
 // Actions
-import { fetchDaysThunk } from './thunk/thunks';
+import { fetchDaysActionAsync } from './saga/actions';
 
 export const useWeather = () => {
     const dispatch = useDispatch();
@@ -11,6 +11,6 @@ export const useWeather = () => {
 
     return {
         data,
-        fetchWeatherData: () => dispatch(fetchDaysThunk()),
+        fetchWeatherData: () => dispatch(fetchDaysActionAsync()),
     };
 };

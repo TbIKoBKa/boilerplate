@@ -7,7 +7,10 @@ import errors from '../../bus/client/errors';
 import days from '../../bus/days/slice';
 
 // Middleware
-import { middleware } from './middleware';
+import { middleware, sagaMiddleware } from './middleware';
+
+// Sagas
+import { rootSaga } from './rootSaga';
 
 export const store = configureStore({
     reducer: {
@@ -20,3 +23,5 @@ export const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof store.getState>
+
+sagaMiddleware.run(rootSaga);
