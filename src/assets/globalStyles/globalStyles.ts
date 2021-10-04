@@ -4,8 +4,10 @@ import reset from 'styled-reset';
 
 // Fonts
 import Roboto from '../fonts/Roboto-Regular.ttf';
+import RobotoWoff2 from '../fonts/Roboto-Regular.woff2';
 import Gemunu from '../fonts/Gemunu-Regular.woff2';
 import Montserrat from '../fonts/Montserrat-Regular.ttf';
+import MontserratWoff2 from '../fonts/Montserrat-Regular.woff2';
 
 export const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -24,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
 
     @font-face {
         font-family: 'Roboto';
-        src: url(${Roboto}) format('truetype');
+        src: url(${RobotoWoff2}) format('woff2'), url(${Roboto}) format('truetype');
         font-weight: 400;
         font-style: normal;
     }
@@ -41,7 +43,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
-        src: url(${Montserrat}) format('truetype');
+        src: url(${MontserratWoff2}) format('woff2'), url(${Montserrat}) format('truetype');
     }
 `;
 

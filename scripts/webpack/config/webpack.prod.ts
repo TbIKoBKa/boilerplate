@@ -7,6 +7,7 @@ import { getCommonConfig } from './webpack.common';
 // Modules
 import * as modules from '../modules';
 
+
 export const getProdConfig = () => {
     return merge(
         getCommonConfig(),
@@ -25,5 +26,6 @@ export const getProdConfig = () => {
         modules.generateServiceWorker(),
         modules.generateManifest(),
         modules.loadFontsProd(),
+        modules.webpackShellProd(),
     );
 };
