@@ -8,6 +8,8 @@ import { useSelector } from '../../../tools/hooks';
 const initialState = {
     isOnline:           navigator.onLine,
     isMessagesFetching: false,
+    isDaysFetching:     false,
+    isFiltered:         false,
 };
 
 // Types

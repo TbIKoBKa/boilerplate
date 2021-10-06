@@ -17,5 +17,5 @@ export const daysSlice = createSlice({
     extraReducers: extraReducers.fetchDaysAsync,
 });
 
-export const messagesActions = daysSlice.actions;
+export const daysActions = daysSlice.actions;
 export default daysSlice.reducer;

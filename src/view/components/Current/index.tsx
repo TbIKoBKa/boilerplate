@@ -9,7 +9,7 @@ import { Label } from '../../elements';
 import { StyledCurrent, MetaProp } from './styles';
 
 type PropTypes = {
-    day: Day | undefined,
+    day: Day | null,
 }
 
 export const Current: FC<PropTypes> = ({ day }) => {

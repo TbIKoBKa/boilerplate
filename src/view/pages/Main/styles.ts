@@ -5,14 +5,13 @@ import styled from 'styled-components';
 import background from '../../../assets/images/bg.png';
 
 export const StyledMain = styled.main`
-    min-height: 100vh;
+    height: 100vh;
     background: radial-gradient(circle, #79bfff 40%, #3788ff 100%);
     //background-image: url(${background});
     padding: 60px 20px 40px;
 `;
 
 export const Container = styled.div`
-    box-sizing: border-box;
     color: #fff;
     font-family: 'Roboto';
     font-weight: 400;

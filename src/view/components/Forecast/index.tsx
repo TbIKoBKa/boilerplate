@@ -1,5 +1,6 @@
 // Core
-import React, { FC, Dispatch, SetStateAction } from 'react';
+import React, { FC } from 'react';
+import { useFilter } from '../../../bus/client/filter';
 
 // Elements
 import { Label } from '../../elements';
@@ -14,13 +15,14 @@ import { Day as DayType, Days } from '../../../bus/days/types';
 import { getDayOfWeek } from '../../../tools/helpers';
 
 type PropTypes = {
-    day: DayType | undefined
+    day: DayType | null
     filteredDays: Days
-    setActiveDay: Dispatch<SetStateAction<DayType | undefined>>
 }
 
-export const Forecast: FC<PropTypes> = ({ day, filteredDays, setActiveDay }) => {
-    const onClickHandle = (day: DayType) => setActiveDay(day);
+export const Forecast: FC<PropTypes> = ({ day, filteredDays }) => {
+    const { setActiveDayAction } = useFilter();
+
+    const onClickHandle = (day: DayType) => setActiveDayAction(day);
 
     return (
         filteredDays.length ? (

@@ -4,14 +4,14 @@ import React, { FC } from 'react';
 // Styles
 import { StyledHeader, Logo, CurrentDate, CurrentDayOfWeek, CurrentDayMonth } from './styles';
 
-// Types
-import { Day } from '../../../bus/days/types';
-
 // Tools
 import { getDayOfWeek, getMonthOfYear, getWeatherTypeIcon } from '../../../tools/helpers';
 
+// Types
+import { Day } from '../../../bus/days/types';
+
 type Proptypes = {
-    day: Day | undefined
+    day: Day | null
 }
 
 export const Header: FC<Proptypes> = ({ day }) => {

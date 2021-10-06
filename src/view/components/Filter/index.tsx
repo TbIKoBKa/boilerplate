@@ -1,89 +1,90 @@
 // Core
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC } from 'react';
+import { useTogglersRedux } from '../../../bus/client/togglers';
+import { useFilter } from '../../../bus/client/filter';
 
 // Styles
-import { Filter as StyledFilter, CheckBox, StyledLabel, Input, Button } from './styles';
-
-// Types
-import { filterContract } from '../../pages/Main/types';
-import { WeatherType } from '../../../bus/days/types';
+import { Filter as StyledFilter, CheckBox, Button, StyledSlider } from './styles';
 
 // Tools
-import { useFilter } from '../../../tools/hooks';
+import { generateMarks } from '../../../tools/helpers';
 
-type PropTypes = {
-    onFilter: filterContract
-}
+// Types
+import { WeatherType } from '../../../bus/days/types';
 
-export const Filter: FC<PropTypes> = ({ onFilter }) => {
-    const {
-        filtered,
-        selectedWeather,
-        maxTemp,
-        minTemp,
-        setFiltered,
-        setSelectedWeather,
-        setMaxTemp,
-        setMinTemp,
-    } = useFilter();
+export const Filter: FC = () => {
+    const { togglersRedux: { isFiltered }, setTogglerAction } = useTogglersRedux();
+    const { filters, setFilterAction, resetFilterAction } = useFilter();
+
+    const sliderValues = {
+        min:  -30,
+        max:  30,
+        step: 10,
+    };
 
     const onCheckBoxClickHandle = (type: WeatherType) => {
-        if (!filtered) {
-            setSelectedWeather(type);
+        if (!isFiltered) {
+            setFilterAction({
+                type,
+            });
         }
     };
 
     const onButtonClickHandle = () => {
-        if (filtered) {
-            setSelectedWeather(null);
-            setMinTemp('');
-            setMaxTemp('');
-            onFilter({ weatherType: null, minTemp: '', maxTemp: '' });
-        } else {
-            onFilter({ weatherType: selectedWeather, minTemp, maxTemp });
+        if (isFiltered) {
+            resetFilterAction();
         }
-        setFiltered((prevState) => !prevState);
+        setTogglerAction({ type: 'isFiltered', value: !isFiltered });
     };
 
-    const onMinTempChangeHandle = (event: ChangeEvent<HTMLInputElement>) => setMinTemp(event.target.value);
+    const handleChangeSlider = (
+        event: Event,
+        newValue: number | number[],
+        activeThumb: number,
+    ) => {
+        if (!Array.isArray(newValue)) {
+            return;
+        }
 
-    const onMaxTempChangeHandle = (event: ChangeEvent<HTMLInputElement>) => setMaxTemp(event.target.value);
+        if (activeThumb === 0 && newValue[ 0 ] !== filters.minTemp) {
+            setFilterAction({ minTemp: Math.min(newValue[ 0 ]) });
+        } else if (newValue[ 1 ] !== filters.minTemp) {
+            setFilterAction({ maxTemp: Math.min(newValue[ 1 ]) });
+        }
+    };
 
     return (
         <StyledFilter>
             <CheckBox
-                disabled = { filtered }
-                selected = { selectedWeather === 'cloudy' }
+                disabled = { isFiltered }
+                selected = { filters.type === 'cloudy' }
                 onClick = { () => onCheckBoxClickHandle('cloudy') }>
                 Облачно
             </CheckBox>
             <CheckBox
-                disabled = { filtered }
-                selected = { selectedWeather === 'sunny' }
+                disabled = { isFiltered }
+                selected = { filters.type === 'sunny' }
                 onClick = { () => onCheckBoxClickHandle('sunny') }>
                 Солнечно
             </CheckBox>
-            <StyledLabel>
-                Минимальная температура
-                <Input
-                    disabled = { filtered }
-                    type = 'number'
-                    value = { minTemp }
-                    onChange = { onMinTempChangeHandle }
-                />
-            </StyledLabel>
-            <StyledLabel>
-                Максимальная температура
-                <Input
-                    disabled = { filtered }
-                    type = 'number'
-                    value = { maxTemp }
-                    onChange = { onMaxTempChangeHandle }
-                />
-            </StyledLabel>
+            <StyledSlider
+                disabled = { isFiltered }
+                getAriaLabel = { () => 'Temperature' }
+                getAriaValueText = { (value: number) => `${value}°C` }
+                marks = { generateMarks(sliderValues.min, sliderValues.max, sliderValues.step) }
+                max = { sliderValues.max }
+                min = { sliderValues.min }
+                size = 'medium'
+                value = { [ Number(filters.minTemp), Number(filters.maxTemp) ] }
+                valueLabelDisplay = 'auto'
+                onChange = { handleChangeSlider }
+            />
             <Button
-                children = { filtered ? 'Сбросить' : 'Отфильтровать' }
-                disabled = { selectedWeather === null && minTemp === '' && maxTemp === '' }
+                children = { isFiltered ? 'Сбросить' : 'Отфильтровать' }
+                disabled = { filters.type === null
+                    && filters.minTemp === null
+                    && filters.maxTemp === null
+                }
                 onClick = { onButtonClickHandle }
             />
         </StyledFilter>

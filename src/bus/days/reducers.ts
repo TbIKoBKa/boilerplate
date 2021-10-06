@@ -6,3 +6,5 @@ export const setDays: types.SetWeatherContract = (...args) => {
 
     return action.payload;
 };
+
+export const resetDays = () => [];
