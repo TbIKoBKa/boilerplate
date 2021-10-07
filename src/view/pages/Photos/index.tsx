@@ -7,12 +7,9 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
 type TPhoto = {
-    id: string,
-    author: string,
-    width: number,
-    height: number,
-    url: string,
-    download_url: string,
+    id: number,
+    tags: string,
+    webformatURL: string,
 }
 
 export default function MasonryImageList() {
@@ -21,10 +18,10 @@ export default function MasonryImageList() {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch('https://picsum.photos/v2/list?limit=30');
+                const response = await fetch('https://pixabay.com/api/?key=23735375-7fe9fcfcb7f7def7d3b0c5c4b&safesearch=true&image_type=photo&pretty=true&orientation=vertical&per_page=50');
                 const data = await response.json();
-                console.log(data);
-                setPhotos(data);
+                console.log(data.hits);
+                setPhotos(data.hits);
             } catch (error) {
                 console.log(error);
             }
@@ -44,10 +41,9 @@ export default function MasonryImageList() {
                 {photos.map((item) => (
                     <ImageListItem key = { item.id }>
                         <img
-                            alt = { item.id }
+                            alt = { item.tags }
                             loading = 'eager'
-                            src = { item.download_url }
-                            width = { 300 }
+                            src = { item.webformatURL }
                         />
                     </ImageListItem>
                 ))}
